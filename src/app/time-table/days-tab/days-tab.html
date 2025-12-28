@@ -1,0 +1,16 @@
+<mat-tab-group class="days-tab">
+    @for (day of days; track day.index) {
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <div class="tab-label-content">
+                    <div>
+                        {{day?.name}}
+                    </div>
+                    <div>
+                        Date: {{day?.date | date:'yyyy-MM-dd'}}
+                    </div>
+                </div>
+            </ng-template>
+        </mat-tab>
+    }
+</mat-tab-group>

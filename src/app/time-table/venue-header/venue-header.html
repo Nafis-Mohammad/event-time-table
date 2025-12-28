@@ -1,0 +1,13 @@
+<!-- <mat-tab-group class="venue-event-tab">
+    @for (venue of venues; track venue) {
+        <mat-tab [label]="venue"></mat-tab>
+    }
+</mat-tab-group> -->
+
+<div class="venue-tabs-container">
+  <div class="venue-tabs-row">
+    @for (venue of venues; track venue) {
+      <div class="venue-tab-cell">{{venue}}</div>
+    }
+  </div>
+</div>

@@ -1,0 +1,13 @@
+.days-tab {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.tab-label-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}

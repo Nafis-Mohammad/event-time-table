@@ -1,0 +1,39 @@
+.venue-tabs-container {
+  width: 100%;
+  overflow-x: auto;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 4px;
+}
+
+.venue-tabs-row {
+  display: flex;
+  flex-wrap: nowrap;
+  /* min-width: min-content; */
+}
+
+.venue-tab-cell {
+  flex: 0 0 120px; /* Fixed width, won't grow or shrink */
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  border-right: 1px solid #e0e0e0;
+  /* cursor: pointer; */
+  white-space: nowrap;
+  user-select: none;
+  
+  /* Typography */
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+  
+  /* Prevent text overflow */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* .venue-tab-cell:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: rgba(0, 0, 0, 0.87);
+} */

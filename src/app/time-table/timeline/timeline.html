@@ -1,0 +1,8 @@
+<div class="timeline-tabs-vertical-container">
+    <div class="timeline-tabs-column">
+        <div class="timeline-tab-cell-vertical" style="flex: 0 0 48px;"></div>
+        @for (time of times; track time) {
+            <div class="timeline-tab-cell-vertical">{{time | date:'H:mm'}}</div>
+        }
+    </div>
+</div>

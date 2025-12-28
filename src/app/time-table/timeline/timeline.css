@@ -1,0 +1,40 @@
+.timeline-tabs-vertical-container {
+  height: 100vh; /* Full viewport height */
+  width: 200px; /* Fixed width for vertical layout */
+  /* overflow-y: auto; */
+  border-right: 1px solid #e0e0e0;
+  padding-right: 4px;
+  
+  /* Scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: #c1c1c1 #f1f1f1;
+}
+
+.timeline-tabs-column {
+  display: flex;
+  flex-direction: column;
+  min-height: min-content;
+}
+
+.timeline-tab-cell-vertical {
+  flex: 0 0 60px; /* Fixed height for each cell */
+  width: 200px; /* Match container width */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  border-bottom: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  user-select: none;
+  
+  /* Typography */
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+  
+  /* Prevent text overflow */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+}
