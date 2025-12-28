@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { DaysTab } from "./days-tab/days-tab";
-import { VenueHeader } from "./venue-header/venue-header";
-import { Timeline } from "./timeline/timeline";
 import { Table } from "./table/table";
 
 @Component({

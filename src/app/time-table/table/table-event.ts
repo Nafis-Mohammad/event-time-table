@@ -3,4 +3,5 @@ export interface TableEvent {
     venues: string[];
     startTime: Date;
     endTime: Date;
+    date: Date;
 }

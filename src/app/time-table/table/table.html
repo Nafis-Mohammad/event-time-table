@@ -1,34 +1,46 @@
 <div class="screen-filling-table">
     <div class="table-wrapper">
+
+        
         <table class="fixed-cell-table">
             <!-- Corner cell + Venues as Column Headers -->
             <thead>
                 <tr>
                     <th class="corner-header"></th>
-                    @for (venue of venues; track venue) {
-                        <th class="column-header">
-                            {{venue}}
-                        </th>
-                    }
+                    <th class="column-header" *ngFor="let venue of venues">{{venue}}</th>
                 </tr>
             </thead>
-            
+
             <tbody>
                 <!-- Times as Row Headers with venue data -->
                 @for (time of times; track time) {
                     <tr>
-                        <th class="row-header">
-                            {{time | date:'H:mm'}}
-                        </th>
-                        @for (venue of venues; track venue) {
-                            <td class="cell">
-                                <!-- You can bind specific data here -->
-                                <!-- {{getCellData(venue, time)}} -->
-                            </td>
-                        }
+                        <th class="row-header">{{time | date:'H:mm'}}</th>
+                        <td class="cell" *ngFor="let venue of venues" [ngClass]="{ 'filled': isCellFilled(venue, time) }">
+                            <ng-container *ngIf="getEventForCell(venue, time) as ev">
+                                <div class="event-content">
+                                    <div class="event-name">{{ ev.name }}</div>
+                                    <div class="event-times">{{ ev.startTime | date:'H:mm' }} - {{ ev.endTime | date:'H:mm' }}</div>
+                                </div>
+                            </ng-container>
+                        </td>
                     </tr>
                 }
             </tbody>
         </table>
     </div>
+    <!-- <div class="event-form">
+            <form (ngSubmit)="addEvent()" #eventForm="ngForm" class="event-form-inner">
+                <input name="name" placeholder="Event name" required [(ngModel)]="newEvent.name" />
+                <input type="date" name="date" required [(ngModel)]="newEvent.dateString" />
+                <input type="time" name="start" required [(ngModel)]="newEvent.startTimeString" />
+                <input type="time" name="end" required [(ngModel)]="newEvent.endTimeString" />
+                <div class="venues-chk">
+                    <label *ngFor="let v of venues">
+                        <input type="checkbox" (change)="toggleVenue(v, $event.target.checked)" /> {{v}}
+                    </label>
+                </div>
+                <button type="submit">Add Event</button>
+            </form>
+        </div> -->
 </div>

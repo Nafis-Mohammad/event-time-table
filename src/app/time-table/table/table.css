@@ -158,3 +158,34 @@ tbody tr:nth-child(even) .cell {
 tbody tr:nth-child(even):hover .cell {
     background-color: #e8f4ff;
 }
+
+
+
+/* new stuff here */
+
+/* Filled event cell */
+.cell.filled {
+    background-color: #1976d2 !important;
+    color: #fff;
+}
+
+.event-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 6px;
+    box-sizing: border-box;
+}
+
+.event-name {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.event-times {
+    font-size: 12px;
+    opacity: 0.95;
+}
