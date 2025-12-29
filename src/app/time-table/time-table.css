@@ -1,3 +1,39 @@
-.timeline-venue-event {
-    display: flex;
+.days-tab {
+    position: fixed;
+    height: 50px;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: var(--mat-sys-surface);
+}
+
+.timeline-wrapper {
+    position: sticky;
+    left: 0;
+    top: 50px;
+    align-self: flex-start; /* Important for flex children */
+    z-index: 900;
+    width: 200px;
+    background-color: var(--mat-sys-surface, white);
+}
+
+.venue-tabs-container {
+    position: sticky;
+    top: 50px;
+    z-index: 800;
+    background-color: var(--mat-sys-surface, white);
+}
+
+.toggle-form-buttons {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.table-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(0px, 1fr));
+    /* gap: 10px; */
+    position: relative;
 }

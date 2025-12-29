@@ -1,0 +1,62 @@
+<h2 mat-dialog-title>Create New Event</h2>
+
+<form [formGroup]="eventForm" (ngSubmit)="createEvent()">
+    <mat-dialog-content>
+        <div style="display: flex; margin-top: 5px; gap: 1em;">
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name">
+                @if (eventForm.get('name')?.hasError('required')) {
+                    <mat-error>Name is <strong>required</strong></mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Venues</mat-label>
+                <mat-select formControlName="venues" multiple>
+                    @for (venue of venues(); track venue) {
+                        <mat-option [value]="venue">{{venue}}</mat-option>
+                    }
+                </mat-select>
+                @if (eventForm.get('venues')?.hasError('required')) {
+                    <mat-error>Venues is <strong>required</strong></mat-error>
+                }
+            </mat-form-field>
+        </div>
+        <div style="display: flex; gap: 1em;">
+            <mat-form-field appearance="outline">
+                <mat-label>Start Time</mat-label>
+                <input matInput [matTimepicker]="startTimePicker" formControlName="startTime">
+                <!-- <mat-timepicker-toggle matIconSuffix [for]="picker"/> -->
+                <mat-timepicker #startTimePicker/>
+                @if (eventForm.get('startTime')?.hasError('required')) {
+                    <mat-error>Start Time is <strong>required</strong></mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>End Time</mat-label>
+                <input matInput [matTimepicker]="endTimePicker" formControlName="endTime">
+                <!-- <mat-timepicker-toggle matIconSuffix [for]="picker"/> -->
+                <mat-timepicker #endTimePicker/>
+                @if (eventForm.get('endTime')?.hasError('required')) {
+                    <mat-error>End Time is <strong>required</strong></mat-error>
+                }
+            </mat-form-field>
+        </div>
+        <mat-form-field>
+            <mat-label>Choose a day</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="day">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            @if (eventForm.get('day')?.hasError('required')) {
+                <mat-error>Day is <strong>required</strong></mat-error>
+            }
+        </mat-form-field>
+
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button matButton mat-dialog-close>Close</button>
+        <button matButton type="submit">Save</button>
+    </mat-dialog-actions>
+</form>
+

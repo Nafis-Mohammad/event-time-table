@@ -1,10 +1,25 @@
-<app-days-tab></app-days-tab>
+<div class="days-tab">
+    <app-days-tab (selectedTabIndex)="changeDay($event)"></app-days-tab>
+</div>
 
-<!-- <div style="display: flex;"> -->
-    <!-- <app-timeline></app-timeline> -->
+<div style="display: flex; margin-top: 50px;">
+    <div class="timeline-wrapper">
+        <app-timeline></app-timeline>
+    </div>
 
-    <!-- <div style="flex: 1;">
-        <app-venue-header></app-venue-header>
-    </div> -->
-    <app-table></app-table>
-<!-- </div> -->
+    <div style="flex: 1;">
+        <div class="venue-tabs-container">
+            <app-venue-header></app-venue-header>
+        </div>
+        <div class="table-content">
+            @for (tableEvent of selectedDayTimeTableEvents; track tableEvent.name) {
+                <app-table-event [tableEvent]="tableEvent"></app-table-event>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="toggle-form-buttons">
+    <button matButton="elevated" (click)="openAddEventForm()">Add New Event</button>
+    <button matButton="elevated" (click)="openAddVenueForm()">Add New Venue</button>
+</div>

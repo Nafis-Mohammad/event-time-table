@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, computed, inject, Signal } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
+import { VenueService } from '../venue-form/venue.service';
 
 @Component({
 	selector: 'app-venue-header',
@@ -9,5 +10,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 	styleUrl: './venue-header.css',
 })
 export class VenueHeader {
-	venues: string[] = ['Venue1', 'Venue2', 'Venue3', 'Venue4', 'Venue5', 'Venue6'];
+	venueService = inject(VenueService);
+	
+	// venues: string[] = ['Venue1', 'Venue2', 'Venue3', 'Venue4', 'Venue5', 'Venue6', 'Venue2', 'Venue3', 'Venue4', 'Venue5', 'Venue6', 'Venue2', 'Venue3', 'Venue4', 'Venue5', 'Venue6', 'Venue2', 'Venue3', 'Venue5', 'Venue6'];
+	venues: Signal<string[]> = computed(() => this.venueService.getVenues());
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal, WritableSignal } from '@angular/core';
 import { Days } from './days.interface';
 
 @Injectable({
@@ -6,7 +6,13 @@ import { Days } from './days.interface';
 })
 export class DaysService {
 
-	getDatesDetails(): Days[] {
+	days: WritableSignal<Days[]> = signal([]);
+	
+	constructor() {
+		this.initializeDates();
+	}
+
+	initializeDates() {
 		const currentDate = new Date();
 		const daysArray: Days[] = [];
 		
@@ -23,6 +29,10 @@ export class DaysService {
 			});
 		}
 		
-		return daysArray;
+		this.days.set(daysArray);
+	}
+
+	getDatesDetails(): Days[] {
+		return this.days();
 	}
 }

@@ -1,8 +1,8 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, model, OnInit, output, Signal, signal } from '@angular/core';
 import { DaysService } from './days.service';
 import { Days } from './days.interface';
 import { CommonModule } from '@angular/common';
-import { MatTabsModule } from '@angular/material/tabs';
+import { MatTabChangeEvent, MatTabsModule } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-days-tab',
@@ -10,11 +10,15 @@ import { MatTabsModule } from '@angular/material/tabs';
   templateUrl: './days-tab.html',
   styleUrl: './days-tab.css',
 })
-export class DaysTab implements OnInit {
-	daysService: DaysService = inject(DaysService);
-	days: Days[] = [];
+export class DaysTab {
 
-	ngOnInit() {
-		this.days = this.daysService.getDatesDetails();
+	daysService: DaysService = inject(DaysService);
+
+	days: Signal<Days[]> = computed(() => this.daysService.getDatesDetails());
+
+	selectedTabIndex = output<number>();
+
+	getSelectedTabIndex(selectedTab: MatTabChangeEvent) {
+		this.selectedTabIndex.emit(selectedTab.index);
 	}
 }

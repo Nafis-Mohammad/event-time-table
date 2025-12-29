@@ -1,6 +1,6 @@
-<mat-tab-group class="days-tab">
-    @for (day of days; track day.index) {
-        <mat-tab>
+<mat-tab-group (selectedTabChange)="getSelectedTabIndex($event)">
+    @for (day of days(); track day.index) {
+        <mat-tab [label]="day.name">
             <ng-template mat-tab-label>
                 <div class="tab-label-content">
                     <div>

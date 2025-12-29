@@ -1,0 +1,8 @@
+<div class="table-event" [style]="tableEventStyle()" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+    <div class="inner-text">
+        {{tableEvent().startTime | date:'H:mm'}} - {{tableEvent().endTime | date:'H:mm'}}
+    </div>
+    <div class="inner-text">
+        {{tableEvent().name}}
+    </div>
+</div>

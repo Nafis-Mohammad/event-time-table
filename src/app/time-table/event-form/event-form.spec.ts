@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Table } from './table';
+import { EventForm } from './event-form';
 
-describe('Table', () => {
-  let component: Table;
-  let fixture: ComponentFixture<Table>;
+describe('EventForm', () => {
+  let component: EventForm;
+  let fixture: ComponentFixture<EventForm>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Table]
+      imports: [EventForm]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Table);
+    fixture = TestBed.createComponent(EventForm);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

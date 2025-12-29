@@ -1,0 +1,8 @@
+.table-event {
+    background-color: var(--mat-sys-primary);
+    position: relative;
+}
+
+.inner-text {
+    color: var(--mat-sys-inverse-on-surface);
+}
