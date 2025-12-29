@@ -16,3 +16,5 @@ Once the server is running, open your browser and navigate to `http://localhost:
 
 - Does not show events based on selected date
 - Does not combine the cells of each event
+
+## Better version in main branch
